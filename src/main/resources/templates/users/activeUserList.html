@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="main :: layout(~{::page_title}, ~{::page_content})">
+<body>
+<h1 th:fragment="page_title">
+    User list.
+</h1>
+
+<section th:fragment="page_content">
+    <div class="pull-right">
+        <a href="form.html" th:href="@{/(form)}">Create User</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Login name</th>
+            <th scope="col">First name</th>
+            <th scope="col">Second name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Created at</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr th:each="user: ${activeUsers}">
+            <td><a href="view.html" th:href="@{'/' + ${user.id}}" th:text="${user.id}"> User id </a></td>
+            <td><a href="view.html" th:href="@{'/' + ${user.id}}" th:text="${user.loginName}"> User login name </a></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.secondName}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.createdAt}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+</body>
+</html>

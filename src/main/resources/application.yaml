@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/myapp
+    username: ivanov
+    password: ivanov
+  liquibase:
+    change-log: classpath:/db/changelog-root.xml
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+#    Very strange property, but it helps to work with custom validations
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: slavaguidemail@gmail.com
+    password: jammbpqzoyblulrj
+#    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+support:
+  email: mazarin.lss.test@gmail.com
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

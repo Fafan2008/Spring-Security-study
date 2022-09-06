@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="main :: layout(~{::page_title}, ~{::page_content})">
+<body>
+<h1 th:fragment="page_title"> Default page title</h1>
+<section th:fragment="page_content">
+    <p>Default page title</p>
+</section>
+
+</body>
+</html>
